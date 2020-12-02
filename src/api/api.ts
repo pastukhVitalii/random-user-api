@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'https://randomuser.me/api/?inc=gender,name,nat,id,phone',
+    baseURL: 'https://randomuser.me/api/?',
     // ...settings
 })
 
 // api
 export const usersApi = {
     getUsers() {
-        const promise = instance.get<ResponseType>(`&page=3&results=10`);
+        const promise = instance.get<ResponseType>(`&page=3&results=10&last=Linda`);
         return promise;
     },
 }
@@ -28,8 +28,40 @@ export type UsersType = {
     name: NameType
     phone: string
     nat: string
+    picture: PictureType
+    email: string
+    location: LocationType
+    // timezone: TimezoneType
+    // login: LoginType
 }
 
+/*type LoginType = {
+    uuid: string
+    username: string
+    password: string
+    salt: string
+    md5: string
+    sha1: string
+    sha256: string
+}*/
+
+/*type TimezoneType = {
+    offset: string,
+    description: string
+}*/
+
+type LocationType = {
+    street: string
+    city: string
+    state: string
+    postcode: string
+}
+
+type PictureType = {
+    large: string
+    medium: string
+    thumbnail: string
+}
 type NameType = {
     title: string
     first: string

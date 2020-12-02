@@ -50,7 +50,6 @@ export const setUsersTC = () => {
     return (dispatch: ThunkDispatch) => {
         usersApi.getUsers()
             .then((res) => {
-                debugger
                 dispatch(setUsersAC(res.data.results))
             })
             .catch(error => {
