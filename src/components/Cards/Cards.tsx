@@ -8,18 +8,6 @@ type PropsType = {
 
 export const Cards = React.memo(function (props: PropsType) {
 
-    let str = [
-        {name: 'ulia'},
-        {name: 'roma'},
-    ];
-    let symvol = 'u';
-    let newArray = str.filter(i => {
-        for (let char of i.name) {
-            return char === symvol
-        }
-    });
-    console.log(newArray)
-
     return (
         <>
             <div className='row'>

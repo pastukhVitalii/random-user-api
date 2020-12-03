@@ -2,8 +2,8 @@ import React from 'react';
 import './Input.sass';
 
 type OwnPropTypes = {
-    value: string
-    type: string
+    value?: string
+    type?: string
     placeholder: string
     onChange: (e: any) => void
 }
@@ -11,13 +11,17 @@ type OwnPropTypes = {
 const Input = (props: OwnPropTypes) => {
     // let errorClass = this.props.state.error ? 'error' : '';
     return (
-      <div className='input'>
-        <input type="text" placeholder= {props.placeholder}
-               className={props.type}
-               value={props.value}
-               onChange={props.onChange}
-               autoFocus={true}/>
-      </div>
+        <div className='row'>
+            <div className="input-field col s3">
+                <input type="text"
+                       id="first_name"
+                       className={props.type}
+                       placeholder={props.placeholder}
+                       value={props.value}
+                       onChange={props.onChange}/>
+            </div>
+
+        </div>
     );
 }
 
