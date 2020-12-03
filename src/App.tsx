@@ -17,7 +17,7 @@ function App() {
     console.log(users);
 
     return (
-        <div className="App">
+        <div className="container">
             <Cards users={users}/>
         </div>
     );

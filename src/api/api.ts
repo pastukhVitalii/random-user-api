@@ -8,7 +8,7 @@ const instance = axios.create({
 // api
 export const usersApi = {
     getUsers() {
-        const promise = instance.get<ResponseType>(`&page=3&results=10&last=Linda`);
+        const promise = instance.get<ResponseType>(`&page=1&results=10`);
         return promise;
     },
 }
@@ -51,7 +51,7 @@ export type UsersType = {
 }*/
 
 type LocationType = {
-    street: string
+    street: {number: string, name: string}
     city: string
     state: string
     postcode: string

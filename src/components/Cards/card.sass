@@ -1,8 +1,50 @@
-//.user
-//  width: 200px
-//  height: 300px
-//  background-color: #61dafb
-
-
 .fixed-height
-  height: 100px
+  height: 130px
+
+.contend_text
+  hyphens: auto
+  word-break: break-all
+
+.text_shadow
+  text-shadow: 2px 2px 2px black
+  color: white
+  font-size: 1.5em
+  margin-bottom: 10px
+
+.card_style
+  display: block
+  position: relative
+  overflow: hidden
+  text-align: center
+
+.card_details
+  position: absolute
+  left: 0
+  bottom: 0
+  width: 100%
+  padding: 12px
+  height: 200px
+  animation-duration: .48s
+  animation-timing-function: ease-out
+  animation-iteration-count: 1
+  animation-direction: alternate
+  animation-fill-mode: forwards
+  animation-play-state: running
+  visibility: hidden
+  z-index: 999
+
+// Animation
+.card_style:hover .fixed-height
+  opacity: 0.2
+
+.card_style:hover .card_details
+  animation-name: scaleUp
+
+@keyframes scaleUp
+  0%
+    visibility: hidden
+    transform: scale(0.8) translateY(100%)
+
+  100%
+    visibility: visible
+    transform: scale(1) translateY(0)
