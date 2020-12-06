@@ -20,7 +20,6 @@ export const usersReducer = (state: ResUsersType = initialState, action: Actions
 // actions
 
 export const setUsersAC = (users: Array<UsersType>) => ({type: 'SET-USERS', users} as const);
-export const setMoreUsersAC = (moreUsers: Array<UsersType>) => ({type: 'SET-MORE-USERS', moreUsers} as const);
 
 // thunk
 export const setUsersTC = (count: number) => {

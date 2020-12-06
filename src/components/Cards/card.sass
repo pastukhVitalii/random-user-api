@@ -1,7 +1,7 @@
 .card_description
   height: fit-content
   text-align: center
-  padding: 24px 0
+  padding: 24px 0!important
 
 .contend_text
   line-height: 30px
@@ -26,16 +26,9 @@
   padding: 12px
   animation-duration: .48s
   animation-timing-function: ease-out
-  animation-iteration-count: 1
-  animation-direction: alternate
   animation-fill-mode: forwards
-  animation-play-state: running
   visibility: hidden
   z-index: 999
-
-// Animation
-//.card_style:hover .fixed-height
-//  opacity: 0.2
 
 .card_style:hover .card_details
   animation-name: scaleUp
@@ -43,9 +36,10 @@
 @keyframes scaleUp
   0%
     visibility: hidden
-    transform: scale(0.8) translateY(100%)
+    transform: translateY(30%)
 
   100%
     visibility: visible
-    transform: scale(1) translateY(0)
+    transform: translateY(0)
+
 

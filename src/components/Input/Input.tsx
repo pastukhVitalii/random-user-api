@@ -17,6 +17,7 @@ export const Input = React.memo(function (props: OwnPropTypes) {
         props.filtering(value);
     };
 
+    console.log('Input')
     return (
         <>
             <div className="input-field col s12 m5 l4">

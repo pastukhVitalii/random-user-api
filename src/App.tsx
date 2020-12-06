@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import './App.sass';
 import {Cards} from "./components/Cards/Cards";
 import {useDispatch, useSelector} from "react-redux";
@@ -15,15 +15,15 @@ function App() {
     const [count, setCount] = useState(10);
     const [filteredUsers, setFilter] = useState(users);
 
-    const filteringByName = (value: string) => {
+    const filteringByName = useCallback((value: string) => {
         setFilter(users.filter(name => name.name.first.toLowerCase().includes(value)))
-    }
-    const filteringByEmail = (value: string) => {
+    }, [users]);
+    const filteringByEmail = useCallback((value: string) => {
         setFilter(users.filter(name => name.email.toLowerCase().includes(value)))
-    }
-    const filteringByNumber = (value: string) => {
+    },[users]);
+    const filteringByNumber = useCallback((value: string) => {
         setFilter(users.filter(name => name.phone.toLowerCase().includes(value)))
-    }
+    }, [users]);
 
     const dispatch = useDispatch();
 
@@ -35,8 +35,7 @@ function App() {
         dispatch(setUsersTC(count))
     }, [dispatch, count]);
 
-    console.log(users);
-    console.log(filteredUsers);
+    console.log('App');
     return (
         <div className="container">
             <div className='row'>
@@ -44,7 +43,7 @@ function App() {
                 <Input placeholder={'Search by email'} filtering={filteringByEmail} setFilter={setFilter}/>
                 <Input placeholder={'Search by phone number'} filtering={filteringByNumber} setFilter={setFilter}/>
             </div>
-            <Cards users={filteredUsers || users}/>
+            <Cards users={filteredUsers}/>
             <div className="row">
                 <Button count={count} increment={1} setCount={setCount} title={'Add one user'}/>
                 <Button count={count} increment={10} setCount={setCount} title={'Add ten user'}/>

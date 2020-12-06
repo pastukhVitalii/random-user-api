@@ -8,6 +8,7 @@ type PropsType = {
 
 export const Cards = React.memo(function (props: PropsType) {
 
+    console.log('Cards');
     return (
         <>
             <div className='row'>

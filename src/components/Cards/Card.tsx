@@ -10,7 +10,7 @@ type PropsType = {
 
 export const Card = React.memo(function (props: PropsType) {
 
-    console.log('user');
+    console.log('Card');
     return (
         <div className='user'>
             <div className="col s12 m6 l4 xl4">
