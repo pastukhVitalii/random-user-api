@@ -15,15 +15,15 @@ export const Card = React.memo(function (props: PropsType) {
         <div className='user'>
             <div className="col s12 m6 l4 xl4">
                 <div className="card blue-grey darken-1 card_style">
-                        <div className="card-image">
-                            <img className='img' src={props.user.picture.medium}/>
-                        </div>
-                        <div className="card-content white-text fixed-height">
-                            <div className="text_shadow">{props.user.name.first} {props.user.name.last}</div>
-                            <div className='contend_text'>{props.user.email}</div>
-                            <div>{props.user.phone}</div>
-                        </div>
-                    <div className='blue-grey darken-1 card-content white-text card_details'>
+                    <div className="card-image">
+                        <img className='img' src={props.user.picture.large} alt={'user'}/>
+                    </div>
+                    <div className="white-text card_description">
+                        <div className="text_shadow">{props.user.name.first} {props.user.name.last}</div>
+                        <div className='contend_text'>{props.user.email}</div>
+                        <div>{props.user.phone}</div>
+                    </div>
+                    <div className='blue-grey darken-1 white-text card_details card_description'>
                         <div className="text_shadow">{props.user.name.first} {props.user.name.last}</div>
                         <div className='contend_text'>{props.user.email}</div>
                         <div>{props.user.phone}</div>

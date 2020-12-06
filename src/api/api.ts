@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'https://randomuser.me/api/?',
+    baseURL: 'https://randomuser.me/api/?seed=foobar',
     // ...settings
 })
 
 // api
 export const usersApi = {
-    getUsers() {
-        const promise = instance.get<ResponseType>(`&page=1&results=10`);
+    getUsers(count: number) {
+        const promise = instance.get<ResponseType>(`&results=${count}`);
         return promise;
     },
 }
@@ -32,10 +32,10 @@ export type UsersType = {
     email: string
     location: LocationType
     // timezone: TimezoneType
-    // login: LoginType
+    login: LoginType
 }
 
-/*type LoginType = {
+type LoginType = {
     uuid: string
     username: string
     password: string
@@ -43,7 +43,7 @@ export type UsersType = {
     md5: string
     sha1: string
     sha256: string
-}*/
+}
 
 /*type TimezoneType = {
     offset: string,

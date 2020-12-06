@@ -1,9 +1,8 @@
-
 import {ResUsersType, usersApi, UsersType} from "../api/api";
 import {Dispatch} from "redux";
 
 const initialState: ResUsersType = {
-    users: []
+    users: [],
 }
 
 export const usersReducer = (state: ResUsersType = initialState, action: ActionsType): ResUsersType => {
@@ -20,35 +19,13 @@ export const usersReducer = (state: ResUsersType = initialState, action: Actions
 
 // actions
 
-export const setUsersAC = (users: Array<UsersType>) => ({type: 'SET-USERS', users} as const)
+export const setUsersAC = (users: Array<UsersType>) => ({type: 'SET-USERS', users} as const);
+export const setMoreUsersAC = (moreUsers: Array<UsersType>) => ({type: 'SET-MORE-USERS', moreUsers} as const);
 
-// thunks
-/*export const setEpisodesTC = () => {
+// thunk
+export const setUsersTC = (count: number) => {
     return (dispatch: ThunkDispatch) => {
-        episodeApi.getEpisodes()
-            .then((res) => {
-                dispatch(setEpisodesAC(res.data.results))
-            })
-            .catch(error => {
-                console.log(error, dispatch);
-            })
-    }
-}
-
-export const setFilteredEpisodesTC = (e: string) => {
-    return (dispatch: ThunkDispatch) => {
-        episodeApi.getFilteredEpisodes(e)
-            .then((res) => {
-                dispatch(setEpisodesAC(res.data.results))
-            })
-            .catch(error => {
-                console.log(error, dispatch);
-            })
-    }
-}*/
-export const setUsersTC = () => {
-    return (dispatch: ThunkDispatch) => {
-        usersApi.getUsers()
+        usersApi.getUsers(count)
             .then((res) => {
                 dispatch(setUsersAC(res.data.results))
             })
@@ -61,6 +38,6 @@ export const setUsersTC = () => {
 // types
 
 export type SetUsersActionType = ReturnType<typeof setUsersAC>;
-type ActionsType = SetUsersActionType
+type ActionsType = SetUsersActionType;
 
-type ThunkDispatch = Dispatch<ActionsType>
+type ThunkDispatch = Dispatch<ActionsType>;

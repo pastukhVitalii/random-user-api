@@ -12,7 +12,7 @@ export const Cards = React.memo(function (props: PropsType) {
         <>
             <div className='row'>
                 {props.users.map(u => {
-                    return <Card key={u.name.first} user={u}/>
+                    return <Card key={u.login.uuid} user={u}/>
                 })}
             </div>
         </>

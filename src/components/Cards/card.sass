@@ -1,9 +1,10 @@
-.fixed-height
-  height: 130px
+.card_description
+  height: fit-content
+  text-align: center
+  padding: 24px 0
 
 .contend_text
-  hyphens: auto
-  word-break: break-all
+  line-height: 30px
 
 .text_shadow
   text-shadow: 2px 2px 2px black
@@ -23,7 +24,6 @@
   bottom: 0
   width: 100%
   padding: 12px
-  height: 200px
   animation-duration: .48s
   animation-timing-function: ease-out
   animation-iteration-count: 1
@@ -34,8 +34,8 @@
   z-index: 999
 
 // Animation
-.card_style:hover .fixed-height
-  opacity: 0.2
+//.card_style:hover .fixed-height
+//  opacity: 0.2
 
 .card_style:hover .card_details
   animation-name: scaleUp
@@ -48,3 +48,4 @@
   100%
     visibility: visible
     transform: scale(1) translateY(0)
+

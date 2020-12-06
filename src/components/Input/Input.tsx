@@ -9,7 +9,6 @@ type OwnPropTypes = {
 }
 
 const Input = (props: OwnPropTypes) => {
-    // let errorClass = this.props.state.error ? 'error' : '';
     return (
         <div className='row'>
             <div className="input-field col s3">
