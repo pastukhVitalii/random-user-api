@@ -20,7 +20,7 @@ function App() {
     }, [users]);
     const filteringByEmail = useCallback((value: string) => {
         setFilter(users.filter(name => name.email.toLowerCase().includes(value)))
-    },[users]);
+    }, [users]);
     const filteringByNumber = useCallback((value: string) => {
         setFilter(users.filter(name => name.phone.toLowerCase().includes(value)))
     }, [users]);
@@ -29,19 +29,25 @@ function App() {
 
     useEffect(() => {
         setFilter(users);
-    }, [dispatch, count, users]);
+    }, [users]);
 
     useEffect(() => {
         dispatch(setUsersTC(count))
     }, [dispatch, count]);
 
+    const arrInput = [
+        {id: 1, placeholder: 'Search by name', filtering: filteringByName, setFilter: setFilter},
+        {id: 2, placeholder: 'Search by email', filtering: filteringByEmail, setFilter: setFilter},
+        {id: 3, placeholder: 'Search by phone number', filtering: filteringByNumber, setFilter: setFilter},
+    ]
+
     console.log('App');
     return (
         <div className="container">
             <div className='row'>
-                <Input placeholder={'Search by name'} filtering={filteringByName} setFilter={setFilter}/>
-                <Input placeholder={'Search by email'} filtering={filteringByEmail} setFilter={setFilter}/>
-                <Input placeholder={'Search by phone number'} filtering={filteringByNumber} setFilter={setFilter}/>
+
+                {arrInput.map(i => <Input key={i.id} placeholder={i.placeholder} filtering={i.filtering}
+                                          setFilter={i.setFilter}/>)}
             </div>
             <Cards users={filteredUsers}/>
             <div className="row">

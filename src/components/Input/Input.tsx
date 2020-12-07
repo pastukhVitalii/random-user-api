@@ -3,7 +3,7 @@ import './Input.sass';
 
 type OwnPropTypes = {
     placeholder: string
-    filtering: (e: any) => void
+    filtering: (value: string) => void
     setFilter: (filteredUsers: any) => void
 }
 
@@ -18,6 +18,7 @@ export const Input = React.memo(function (props: OwnPropTypes) {
     };
 
     console.log('Input')
+
     return (
         <>
             <div className="input-field col s12 m5 l4">

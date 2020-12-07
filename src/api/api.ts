@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'https://randomuser.me/api/?seed=foobar',
+    baseURL: 'https://randomuser.me/api/?',
     // ...settings
 })
 
 // api
 export const usersApi = {
     getUsers(count: number) {
-        const promise = instance.get<ResponseType>(`&results=${count}`);
+        const promise = instance.get<ResponseType>(`seed=foobar&results=${count}`);
         return promise;
     },
 }
